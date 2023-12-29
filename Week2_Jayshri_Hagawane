@@ -1,1 +1,68 @@
+//Task List Application
+internal class program
+{
+    private static void Main(string[] args)
+    {
 
+        Console.WriteLine("Task list application");
+        List<string> list = new List<string>();
+        string choice="";
+
+        while (choice != "5")
+        {
+            Console.WriteLine("1.Create task");
+            Console.WriteLine("2.Read task");
+            Console.WriteLine("3.Update task");
+            Console.WriteLine("4.Delete task");
+            Console.WriteLine("5.Exit");
+
+            Console.WriteLine("Please enter the choice:");
+            choice = Console.ReadLine();
+            switch (choice)
+            {
+                case "1":
+                 Console.WriteLine("Please enter the task:");
+                 string task = Console.ReadLine();
+                 list.Add(task);
+                 Console.WriteLine("Task added successfully!");
+                    break;
+
+                case "2":
+                    for (int i = 0; i < list.Count; i++)
+                    {
+                        Console.WriteLine(list[i]);
+                    }
+                    break;
+
+                case "3":
+                    Console.WriteLine("Enter the number of task which you want to update:");
+                    int taskNo = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Enter the new task:");
+                    string str=Console.ReadLine();
+                    break;
+
+                case "4":
+                    for (int i = 0; i < list.Count; i++)
+                    {
+                        Console.WriteLine(i + ":" + list[i]);
+
+                    }
+                    Console.WriteLine("Please enter the number of the task to remove from the list");
+                    int taskNumber = Convert.ToInt32(Console.ReadLine());
+                    list.RemoveAt(taskNumber);
+                    //Console.WriteLine(list);
+                    break;
+
+                case "5":
+                    Console.WriteLine("Exit");
+                    break;
+
+                default:
+                    Console.WriteLine("Please enter the task:");
+                    break;
+            }
+
+        }   
+       
+    }
+}
